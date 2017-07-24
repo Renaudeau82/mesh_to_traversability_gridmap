@@ -1,3 +1,29 @@
+/*--
+ *      This node compute the traversability from the polygon_mesh from voxblox
+ *      Using opencv tools on gridMap
+ *
+ *      Subscrib :
+ *          voxblox_node/pcl_mesh PolygonMesh from voxblox reconstruction
+ *
+ *      Publish :
+ *          /image_traversability the binary image of Traversability
+ *          /free_space_grid_map the finale gridMap with traversability + normals +...
+ *
+ *      Client :
+ *          /Caller: to call the service /voxblox/generate_mesh
+ *
+ *      Parameters :
+ *          verbose: to show steps, time consuming, image processed
+ *          grid_map_resolution: resolution of the gridMap (m/pixels)
+ *          z_threshold: The value of the threshold on traverasbility altitude
+ *          loop: if you want the node to call for another polygonMesh from voxblox when the computation finish
+ *
+ *      Approach :
+ *          1) convert PolygonMesh into GridMap
+ *          2) compute normals using opencv tools : gradiant + orientation
+ *          3) compute traversability by thresholding point cloud on slope and altitude
+ *          4) filtering traversability images
+ */
 #include <mesh_to_traversability_gridmap/mesh_to_traversability_gridmap.hpp>
 
 namespace mesh_to_traversability {
@@ -10,6 +36,7 @@ MeshToGridMapConverter::MeshToGridMapConverter(ros::NodeHandle nh,
       layer_name_(kDefaultLayerName),
       latch_grid_map_pub_(kDefaultLatchGridMapPub),
       verbose_(kDefaultVerbose),
+      z_threshold_(kDefaultZThreshold),
       loop_(kDefaultLoop)
 {
     // Initial interaction with ROS

@@ -1,10 +1,10 @@
 <launch>
 <!-- ===== Play rosbag Grass Zurich======================================================== 
-<include file="$(find stitching_traversability_graph)/launch/rosbag_play1.launch"/>
+<node pkg="rosbag" type="play" name="player" output="screen" args="/home/eth/ibis-erl-2017-06-16-11-47-41.bag --clock"> </node>
 <arg name="stereo_params_camchain" default="$(find mav_startup)/parameters/mavs/ibis/camchain_p22031.yaml"/> -->
 
 <!-- ===== Play rosbag building Geneva ======================================================== -->
-<include file="$(find stitching_traversability_graph)/launch/rosbag_play2.launch"/> 
+<node pkg="rosbag" type="play" name="player" output="screen" args="/home/eth/postprocessed-ibis-erl-2017-05-09-16-39-02.bag --clock"> </node> 
 <arg name="stereo_params_camchain" default="$(find erl_playback)/cfg/2017-05-23/camchain_p22031.yaml"/>
 
 <!-- Args -->
