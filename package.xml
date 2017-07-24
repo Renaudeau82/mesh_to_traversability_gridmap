@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mesh_to_traversability_gridmap</name>
+  <version>0.0.0</version>
+  <description>
+    Packages for converting meshes to traversability gridmap.
+  </description>
+  <url></url>
+  <author>Brice Renaudeau</author>
+  <maintainer email="brice_ren@hotmail.fr">Brice Renaudeau</maintainer>
+  <license>New BSD</license>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <!-- Dependencies. -->
+  <depend>roscpp</depend>
+  <depend>cmake_modules</depend>
+  <depend>pcl_ros</depend>
+  <depend>grid_map_core</depend>
+  <depend>grid_map_pcl</depend>
+  <depend>grid_map_msgs</depend>
+  <depend>grid_map_ros</depend>
+  <depend>image_transport</depend>
+  <depend>cv_bridge</depend>
+</package>

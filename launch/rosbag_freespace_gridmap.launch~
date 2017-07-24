@@ -1,0 +1,19 @@
+<launch>
+
+<!-- ===== load grid_map from rosbag ======================================================== -->
+<node pkg="pkg_mesh_to_freespace_grid_map" type="grid_map_loader_node" name="grid_map_loader_node" output="screen">
+<param name="path" value="/home/eth/freespace_grid_map.bag" />
+<param name="topic" value="/ibis/mesh_to_freespace_grid_map_node/grid_map" />
+</node> 
+
+<!-- ===== Gridmap vizualization (normals,...) =================================== -->
+<node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">
+<rosparam command="load" file="$(find pkg_mesh_to_freespace_grid_map)/config/grid_map_visualization.yaml" />
+</node>
+
+
+<!-- ===== RVIZ =================================== -->
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find pkg_mesh_to_freespace_grid_map)/config/rviz_config.rviz"/>
+
+</launch> 
+ 
