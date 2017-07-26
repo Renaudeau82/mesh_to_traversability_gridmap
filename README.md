@@ -9,7 +9,7 @@ ROS package containing 1 node :
 
 ## Usage ##
 
-* **roslaunch mesh_to_traversability_gridmap.launch :** 
+* **roslaunch mesh_to_traversability_gridmap.launch :** use voxblox_node tu create 3D mesh then subscrib to /pcl_mesh
 
 Launch rosbag (you have to use yours) 
 
