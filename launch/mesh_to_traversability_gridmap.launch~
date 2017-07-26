@@ -79,7 +79,7 @@
 <param name="latch_grid_map_pub" value="true" />
 <param name="verbose" value="true"/>
 <param name="z_threshold" value="15"/>
-<param name="loop" value="false"/>
+<param name="loop" value="true"/>
 </node>
 
 </group>
